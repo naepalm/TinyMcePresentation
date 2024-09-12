@@ -1,0 +1,15 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@{
+	Layout = "_Layout.cshtml";
+}
+
+@if (Model.HasValue("checklistCss"))
+{
+	<style>
+		@Html.Raw(Model.Value("checklistCss"))
+	</style>
+}
+
+<h1>@Model.Name</h1>
+@Model.Value("rteExample")
