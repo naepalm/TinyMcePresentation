@@ -6,9 +6,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="tinymce.umbraco.premium" Version="13.2.4" />
-    <PackageReference Include="Umbraco.Cms" Version="13.4.1" />
-    <PackageReference Include="uSync" Version="13.2.4" />
+    <PackageReference Include="tinymce.umbraco.premium" Version="13.2.5" />
+    <PackageReference Include="Umbraco.Cms" Version="13.5.0" />
+    <PackageReference Include="uSync" Version="13.2.5" />
   </ItemGroup>
 
   <ItemGroup>
@@ -17,6 +17,12 @@
     <RuntimeHostConfigurationOption Include="System.Globalization.AppLocalIcu" Value="72.1.0.3" Condition="$(RuntimeIdentifier.StartsWith('linux')) or $(RuntimeIdentifier.StartsWith('win')) or ('$(RuntimeIdentifier)' == '' and !$([MSBuild]::IsOSPlatform('osx')))" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Include="App_Plugins\**">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  
   <PropertyGroup>
     <!-- Razor files are needed for the backoffice to work correctly -->
     <CopyRazorGenerateFilesToPublishDirectory>true</CopyRazorGenerateFilesToPublishDirectory>
