@@ -50,7 +50,7 @@ namespace TinyMceTalk.Models.Generated
 		// properties
 
 		///<summary>
-		/// Footnotes: To view more documentation on enhanced media embeds, visit https://www.tiny.cloud/docs/tinymce/latest/footnotes/
+		/// Footnotes: To view more documentation on footnotes, visit https://www.tiny.cloud/docs/tinymce/latest/footnotes/
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.5.0+a6c5581")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
