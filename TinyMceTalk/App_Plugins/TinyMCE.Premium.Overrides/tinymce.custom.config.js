@@ -1,31 +1,31 @@
 ﻿!(function () {
 
-    function init() {
+    function init($http, umbRequestHelper) {
 
         window.tinymcepremium.Config.custom_user_config = {
-            // Add your config here -- can contain javascript after the ":"
-            // YEP, ITS A JAVASCRIPT CALLBACK
-            advtemplate_list: () => advTemplatePromise,
+            // To update the advanced templates, you have to set the default to null
+            advtemplate_templates: null,
+
+            // You can get the entire list from an API response response
+            advtemplate_list: () => umbRequestHelper.resourcePromise(
+                    $http.get('/umbraco/api/AdvancedTemplates/GetTemplates'),
+                    'Failed to get template list'
+                ).then((data) => data),
+
+            // You can get a single item from an API response
+            advtemplate_get_template: (id) => umbRequestHelper.resourcePromise(
+                    $http.get('/umbraco/api/AdvancedTemplates/GetTemplate/?id=' + id),
+                    'Failed to get template list'
+                )
+                .then(({ id, title, content }) => ({ id, title, content }))
         };
-
-        let advTemplatePromise = fetch("/umbraco/api/AdvancedTemplates/GetTemplates", {
-            method: 'GET',
-            })
-            .then((response) => response.json())
-            .then((data) => data)
-            .catch((error) => console.info('Failed to get template list\n' + error));
-
-        // I can execute the promise in the console here, but
-        // if I get it from the custom user config it does not appear to be
-        // executing it and I'm not sure what I'm doing wrong
-        console.info("Template List: ", advTemplatePromise);
     }
 
     /**
     * Initialize after the app.ready event 
     */
-    angular.module("umbraco").run(function ($rootScope) {
-        $rootScope.$on('app.ready', init)
+    angular.module("umbraco").run(function ($rootScope, $http, umbRequestHelper) {
+        $rootScope.$on('app.ready', init($http, umbRequestHelper))
     })
 
 })()

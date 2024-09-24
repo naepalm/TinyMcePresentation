@@ -15,6 +15,30 @@ namespace TinyMceTalk
             _umbracoContextAccessor = umbracoContextAccessor;
         }
 
+        public AdvancedTemplateResponse GetTemplate(string id)
+        {
+            var template = new AdvancedTemplateResponse();
+
+            if (_umbracoContextAccessor != null && _umbracoContextAccessor.TryGetUmbracoContext(out var ctx))
+            {
+                if(Guid.TryParse(id, out var templateKey))
+                {
+                    var templateNode = ctx.Content?.GetById(templateKey);
+                    if(templateNode != null && templateNode is AdvancedTemplate advancedTemplate)
+                    {
+                        template = new AdvancedTemplateResponse
+                        {
+                            Id = advancedTemplate.Key.ToString(),
+                            Title = advancedTemplate.Name,
+                            Content = advancedTemplate.TemplateContent?.ToString()
+                        };
+                    }
+                }
+            }
+
+            return template;
+        }
+
         [HttpGet]
         public IEnumerable<AdvancedTemplateCategoryResponse>? GetTemplates()
         {
@@ -29,11 +53,11 @@ namespace TinyMceTalk
                 {
                     var categories = allCategories.WhereNotNull().Select(category => new AdvancedTemplateCategoryResponse
                     {
-                        Id = Udi.Create("document", category.Key).ToString(),
+                        Id = category.Key.ToString(),
                         Title = category.Name,
                         Items = category.Children<AdvancedTemplate>()?.WhereNotNull().Select(advTemplate => new AdvancedTemplateResponse
                         {
-                            Id = Udi.Create("document", advTemplate.Key).ToString(),
+                            Id = advTemplate.Key.ToString(),
                             Title = advTemplate.Name,
                             Content = advTemplate.TemplateContent?.ToString()
                         })
