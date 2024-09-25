@@ -4,10 +4,10 @@
 	Layout = "_Layout.cshtml";
 }
 
-@if (Model.HasValue("checklistCss"))
+@if (Model.HasValue("customCss"))
 {
 	<style>
-		@Html.Raw(Model.Value("checklistCss"))
+		@Html.Raw(Model.Value("customCss"))
 	</style>
 }
 

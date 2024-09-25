@@ -18,14 +18,14 @@ using Umbraco.Extensions;
 
 namespace TinyMceTalk.Models.Generated
 {
-	/// <summary>Checklist</summary>
-	[PublishedModel("checklist")]
-	public partial class Checklist : PublishedContentModel
+	/// <summary>Page Embed</summary>
+	[PublishedModel("pageEmbed")]
+	public partial class PageEmbed : PublishedContentModel
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.5.0+a6c5581")]
-		public new const string ModelTypeAlias = "checklist";
+		public new const string ModelTypeAlias = "pageEmbed";
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.5.0+a6c5581")]
 		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.5.0+a6c5581")]
@@ -34,14 +34,14 @@ namespace TinyMceTalk.Models.Generated
 			=> PublishedModelUtility.GetModelContentType(publishedSnapshotAccessor, ModelItemType, ModelTypeAlias);
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.5.0+a6c5581")]
 		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		public static IPublishedPropertyType GetModelPropertyType<TValue>(IPublishedSnapshotAccessor publishedSnapshotAccessor, Expression<Func<Checklist, TValue>> selector)
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(IPublishedSnapshotAccessor publishedSnapshotAccessor, Expression<Func<PageEmbed, TValue>> selector)
 			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(publishedSnapshotAccessor), selector);
 #pragma warning restore 0109
 
 		private IPublishedValueFallback _publishedValueFallback;
 
 		// ctor
-		public Checklist(IPublishedContent content, IPublishedValueFallback publishedValueFallback)
+		public PageEmbed(IPublishedContent content, IPublishedValueFallback publishedValueFallback)
 			: base(content, publishedValueFallback)
 		{
 			_publishedValueFallback = publishedValueFallback;
@@ -50,7 +50,7 @@ namespace TinyMceTalk.Models.Generated
 		// properties
 
 		///<summary>
-		/// Custom CSS: This is some custom code we're using to display the checklist on the front of the site.
+		/// Custom CSS: Some custom CSS we're applying to the page embed so it properly pulls in the different responsive options.
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.5.0+a6c5581")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
@@ -58,7 +58,7 @@ namespace TinyMceTalk.Models.Generated
 		public virtual string CustomCss => this.Value<string>(_publishedValueFallback, "customCss");
 
 		///<summary>
-		/// Checklist: To view more documentation on checklists, visit https://www.tiny.cloud/docs/tinymce/latest/checklist/
+		/// Page Embed: To view more documentation on format painting, visit https://www.tiny.cloud/docs/tinymce/latest/linkchecker/
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.5.0+a6c5581")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
