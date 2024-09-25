@@ -18,30 +18,30 @@ using Umbraco.Extensions;
 
 namespace TinyMceTalk.Models.Generated
 {
-	/// <summary>Member</summary>
-	[PublishedModel("Member")]
-	public partial class Member : PublishedContentModel
+	/// <summary>Power Paste</summary>
+	[PublishedModel("powerPaste")]
+	public partial class PowerPaste : PublishedContentModel
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.5.1+2e068bb")]
-		public new const string ModelTypeAlias = "Member";
+		public new const string ModelTypeAlias = "powerPaste";
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.5.1+2e068bb")]
-		public new const PublishedItemType ModelItemType = PublishedItemType.Member;
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.5.1+2e068bb")]
 		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		public new static IPublishedContentType GetModelContentType(IPublishedSnapshotAccessor publishedSnapshotAccessor)
 			=> PublishedModelUtility.GetModelContentType(publishedSnapshotAccessor, ModelItemType, ModelTypeAlias);
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.5.1+2e068bb")]
 		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		public static IPublishedPropertyType GetModelPropertyType<TValue>(IPublishedSnapshotAccessor publishedSnapshotAccessor, Expression<Func<Member, TValue>> selector)
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(IPublishedSnapshotAccessor publishedSnapshotAccessor, Expression<Func<PowerPaste, TValue>> selector)
 			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(publishedSnapshotAccessor), selector);
 #pragma warning restore 0109
 
 		private IPublishedValueFallback _publishedValueFallback;
 
 		// ctor
-		public Member(IPublishedContent content, IPublishedValueFallback publishedValueFallback)
+		public PowerPaste(IPublishedContent content, IPublishedValueFallback publishedValueFallback)
 			: base(content, publishedValueFallback)
 		{
 			_publishedValueFallback = publishedValueFallback;
@@ -50,11 +50,11 @@ namespace TinyMceTalk.Models.Generated
 		// properties
 
 		///<summary>
-		/// Comments
+		/// Power Paste: To view more documentation on power paste, visit https://www.tiny.cloud/docs/tinymce/latest/introduction-to-powerpaste/
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.5.1+2e068bb")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("umbracoMemberComments")]
-		public virtual string UmbracoMemberComments => this.Value<string>(_publishedValueFallback, "umbracoMemberComments");
+		[ImplementPropertyType("rteExample")]
+		public virtual global::Umbraco.Cms.Core.Strings.IHtmlEncodedString RteExample => this.Value<global::Umbraco.Cms.Core.Strings.IHtmlEncodedString>(_publishedValueFallback, "rteExample");
 	}
 }
