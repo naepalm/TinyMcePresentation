@@ -48,13 +48,5 @@ namespace TinyMceTalk.Models.Generated
 		}
 
 		// properties
-
-		///<summary>
-		/// Footnotes: To view more documentation on footnotes, visit https://www.tiny.cloud/docs/tinymce/latest/footnotes/
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.5.1+2e068bb")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("rteExample")]
-		public virtual global::Umbraco.Cms.Core.Strings.IHtmlEncodedString RteExample => this.Value<global::Umbraco.Cms.Core.Strings.IHtmlEncodedString>(_publishedValueFallback, "rteExample");
 	}
 }
