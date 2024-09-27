@@ -5,13 +5,13 @@ using Umbraco.Cms.Core;
 using Umbraco.Cms.Core.Web;
 using Umbraco.Cms.Web.Common.Controllers;
 
-namespace TinyMceTalk
+namespace TinyMceTalk.Controllers
 {
     public class AdvancedTemplatesController : UmbracoApiController
     {
         private readonly IUmbracoContextAccessor _umbracoContextAccessor;
-        public AdvancedTemplatesController(IUmbracoContextAccessor umbracoContextAccessor) 
-        { 
+        public AdvancedTemplatesController(IUmbracoContextAccessor umbracoContextAccessor)
+        {
             _umbracoContextAccessor = umbracoContextAccessor;
         }
 
@@ -21,10 +21,10 @@ namespace TinyMceTalk
 
             if (_umbracoContextAccessor != null && _umbracoContextAccessor.TryGetUmbracoContext(out var ctx))
             {
-                if(Guid.TryParse(id, out var templateKey))
+                if (Guid.TryParse(id, out var templateKey))
                 {
                     var templateNode = ctx.Content?.GetById(templateKey);
-                    if(templateNode != null && templateNode is AdvancedTemplate advancedTemplate)
+                    if (templateNode != null && templateNode is AdvancedTemplate advancedTemplate)
                     {
                         template = new AdvancedTemplateResponse
                         {
