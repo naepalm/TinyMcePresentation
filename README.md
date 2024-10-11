@@ -5,9 +5,9 @@ Showing off the different features of TinyMce Premium in Umbraco
 
 The site is built on Umbraco 13 and can be loaded and run without any need for front-end builds.
 
-The database is hosted locally using SQLite, and the username/password should be:
-admin@example.com
-1234567890
+The database is hosted locally using SQLite, and the username/password should be:  
+admin@example.com  
+1234567890  
 
 When you load the site, there will be no data types, doctypes, or content. You will need to go to Settings and import everything through uSync. This should import all the settings, including the content :)
 
