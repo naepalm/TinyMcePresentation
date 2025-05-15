@@ -1,15 +1,40 @@
 ﻿@using Umbraco.Cms.Web.Common.PublishedModels;
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
 @{
-	Layout = "_Layout.cshtml";
+    Layout = "_Layout.cshtml";
 }
 
 @if (Model.HasValue("customCss"))
 {
-	<style>
-		@Html.Raw(Model.Value("customCss"))
-	</style>
+    <style>
+        @Html.Raw(Model.Value("customCss"))
+    </style>
 }
 
 <h1>@Model.Name</h1>
-@Model.Value("rteExample")
+@if (!Model.IsDocumentType("home"))
+{
+    @Model.Value("rteExample")
+}
+else if (Model.Children().Any())
+{
+    <ul>
+        @foreach (var categoryFolder in Model.Children())
+        {
+            <li>
+                <h2>@categoryFolder.Name</h2>
+                @if (categoryFolder.Children.Any())
+                {
+                    <ul>
+                        @foreach (var rteItem in categoryFolder.Children())
+                        {
+                            <li>
+                                <a href="@rteItem.Url()">@rteItem.Name</a>
+                            </li>
+                        }
+                    </ul>
+                }
+            </li>
+        }
+    </ul>
+}

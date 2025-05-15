@@ -50,6 +50,14 @@ namespace TinyMceTalk.Models.Generated
 		// properties
 
 		///<summary>
+		/// Normal Editor: The default Richtext Editor to compare the table functionality with.
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.5.1+2e068bb")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("normalEditor")]
+		public virtual global::Umbraco.Cms.Core.Strings.IHtmlEncodedString NormalEditor => this.Value<global::Umbraco.Cms.Core.Strings.IHtmlEncodedString>(_publishedValueFallback, "normalEditor");
+
+		///<summary>
 		/// Advanced Table Editor: To view more documentation on the advanced table editor, visit https://www.tiny.cloud/docs/tinymce/latest/advtable/
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.5.1+2e068bb")]
